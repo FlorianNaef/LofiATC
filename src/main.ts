@@ -24,12 +24,22 @@ const atcVolumeInput = document.getElementById(
 const sourceManager = new SourceManager();
 
 pauseMusicButton.addEventListener("click", () => {
-  musicAudioElement.paused
-    ? musicAudioElement.play()
-    : musicAudioElement.pause();
+  if (musicAudioElement.paused) {
+    pauseMusicButton.innerText = "PAUSE";
+    musicAudioElement.play();
+    return;
+  }
+  pauseMusicButton.innerText = "PLAY";
+  musicAudioElement.pause();
 });
 pauseAtcButton.addEventListener("click", () => {
-  atcAudioElement.paused ? atcAudioElement.play() : atcAudioElement.pause();
+  if (atcAudioElement.paused) {
+    pauseAtcButton.innerText = "PAUSE";
+    atcAudioElement.play();
+    return;
+  }
+  pauseAtcButton.innerText = "PLAY";
+  atcAudioElement.pause();
 });
 nextButton.addEventListener("click", () => {
   sourceManager.next();

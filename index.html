@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.indigo.min.css"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lofi ATC</title>
@@ -15,33 +15,23 @@
       <h1>Lofi ATC</h1>
     </header>
     <main>
-      <div style="display: flex">
-        <button
-          id="pause-music-button"
-          class="pause-button"
-          style="margin-right: 1rem"
-        >
-          >
-        </button>
-        <label>
-          Music
-          <input id="music-volume-input" type="range" value="0.4" />
-        </label>
+      <div class="content-container">
+        <div>
+          <button id="pause-music-button" class="pause-button">PAUSE</button>
+          <label>
+            Music
+            <input id="music-volume-input" type="range" value="0.4" />
+          </label>
+        </div>
+        <div>
+          <button id="pause-atc-button" class="pause-button">PAUSE</button>
+          <label>
+            ATC
+            <input id="atc-volume-input" type="range" value="0.4" />
+          </label>
+        </div>
+        <button id="next-button">switch channel</button>
       </div>
-      <div style="display: flex">
-        <button
-          id="pause-atc-button"
-          class="pause-button"
-          style="margin-right: 1rem"
-        >
-          >
-        </button>
-        <label>
-          ATC
-          <input id="atc-volume-input" type="range" value="0.4" />
-        </label>
-      </div>
-      <button id="next-button">switch channel</button>
     </main>
     <div id="hidden-container">
       <audio id="music-audio-element" controls>
