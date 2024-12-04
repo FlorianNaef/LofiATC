@@ -1,24 +1,59 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import { SourceManager } from "./SourceManager";
+import "./style.css";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const musicAudioElement = document.getElementById(
+  "music-audio-element"
+) as HTMLAudioElement;
+const atcAudioElement = document.getElementById(
+  "atc-audio-element"
+) as HTMLAudioElement;
+const nextButton = document.getElementById("next-button") as HTMLButtonElement;
+const pauseMusicButton = document.getElementById(
+  "pause-music-button"
+) as HTMLButtonElement;
+const pauseAtcButton = document.getElementById(
+  "pause-atc-button"
+) as HTMLButtonElement;
+const musicVolumeInput = document.getElementById(
+  "music-volume-input"
+) as HTMLInputElement;
+const atcVolumeInput = document.getElementById(
+  "atc-volume-input"
+) as HTMLInputElement;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const sourceManager = new SourceManager();
+
+pauseMusicButton.addEventListener("click", () => {
+  musicAudioElement.paused
+    ? musicAudioElement.play()
+    : musicAudioElement.pause();
+});
+pauseAtcButton.addEventListener("click", () => {
+  atcAudioElement.paused ? atcAudioElement.play() : atcAudioElement.pause();
+});
+nextButton.addEventListener("click", () => {
+  sourceManager.next();
+  reload();
+});
+musicVolumeInput.addEventListener("input", (event) => {
+  const target = event.target as HTMLInputElement;
+  musicAudioElement.volume = parseInt(target.value) / 100;
+});
+atcVolumeInput.addEventListener("input", (event) => {
+  const target = event.target as HTMLInputElement;
+  atcAudioElement.volume = parseInt(target.value) / 100;
+});
+
+reload();
+
+musicAudioElement.volume = parseInt(musicVolumeInput.value) / 100;
+atcAudioElement.volume = parseInt(atcVolumeInput.value) / 100;
+
+function reload() {
+  musicAudioElement.src = sourceManager.currentMusicSource;
+  atcAudioElement.src = sourceManager.currentAtcSource;
+  musicAudioElement.load();
+  musicAudioElement.play();
+  atcAudioElement.load();
+  atcAudioElement.play();
+}
