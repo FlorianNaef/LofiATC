@@ -2,15 +2,6 @@ export class SourceManager {
   private musicSource: MusicSource = MusicSource.CHILLING;
   private atcSource: AtcSource = AtcSource.ARINC;
 
-  private musicSources = [
-    "https://www.loficafe.net/api/stream/studying.mp3",
-    "https://www.loficafe.net/api/stream/chilling.mp3",
-    "https://www.loficafe.net/api/stream/working.mp3",
-    "https://www.loficafe.net/api/stream/sleeping.mp3",
-    "https://www.loficafe.net/api/stream/japanese_lofi.mp3",
-    "https://www.loficafe.net/api/stream/gaming.mp3",
-  ];
-
   get currentMusicSource() {
     return this.musicSource.toString();
   }

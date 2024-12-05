@@ -1,5 +1,6 @@
 body {
   height: 100vh;
+  background-color: bisque;
   background-image: url("https://wallpaperaccess.com/full/6033705.jpg");
 }
 
@@ -7,37 +8,32 @@ body {
   display: none;
 }
 
-header {
-  height: 10%;
-  margin: 0 2rem;
+.window {
+  position: absolute;
+  top: 10%;
+  right: 42.5%;
+  width: 15%;
 }
 
-main {
-  display: flex;
-  width: 100%;
-  height: 90%;
-  justify-content: center;
-  align-items: end;
-}
-
-.content-container {
-  display: flex;
-  width: 50%;
-  flex-direction: column;
-}
-
-@media only screen and (max-width: 600px) {
-  .content-container {
-    width: 90%;
+@media screen and (max-width: 992px) {
+  .window {
+    right: 30%;
+    width: 40%;
   }
 }
 
-.pause-button {
-  display: inline;
-  font-weight: var(--pico-form-label-font-weight, var(--pico-font-weight));
-  margin-right: 1rem;
+@media screen and (max-width: 600px) {
+  .window {
+    right: 25%;
+    width: 50%;
+  }
 }
 
-label {
-  display: inline;
+.controll-container {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.content-container * {
+  width: 100%;
 }

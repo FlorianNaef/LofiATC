@@ -3,27 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.indigo.min.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/xp.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lofi ATC</title>
   </head>
   <body>
-    <header>
-      <h1>Lofi ATC</h1>
-    </header>
-    <main>
-      <div class="content-container">
-        <div>
+    <div class="window">
+      <div class="title-bar">
+        <div class="title-bar-text">Lofi ATM</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="controll-container">
           <button id="pause-music-button" class="pause-button">PAUSE</button>
           <label>
             Music
             <input id="music-volume-input" type="range" value="0.4" />
           </label>
         </div>
-        <div>
+        <div class="controll-container">
           <button id="pause-atc-button" class="pause-button">PAUSE</button>
           <label>
             ATC
@@ -32,7 +34,7 @@
         </div>
         <button id="next-button">switch channel</button>
       </div>
-    </main>
+    </div>
     <div id="hidden-container">
       <audio id="music-audio-element" controls>
         <source id="source-element" src="" type="audio/mp3" />
