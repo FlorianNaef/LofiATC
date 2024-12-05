@@ -1,6 +1,6 @@
 body {
   height: 100vh;
-  background-image: url(./airplane-flying-overhead.jpg);
+  background-image: url("https://wallpaperaccess.com/full/6033705.jpg");
 }
 
 #hidden-container {
@@ -24,6 +24,12 @@ main {
   display: flex;
   width: 50%;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+  .content-container {
+    width: 90%;
+  }
 }
 
 .pause-button {
