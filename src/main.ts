@@ -7,7 +7,7 @@ const musicAudioElement = document.getElementById(
 const atcAudioElement = document.getElementById(
   "atc-audio-element"
 ) as HTMLAudioElement;
-const nextButton = document.getElementById("next-button") as HTMLButtonElement;
+// const nextButton = document.getElementById("next-button") as HTMLButtonElement;
 const pauseMusicButton = document.getElementById(
   "pause-music-button"
 ) as HTMLButtonElement;
@@ -41,10 +41,10 @@ pauseAtcButton.addEventListener("click", () => {
   pauseAtcButton.innerText = "PLAY";
   atcAudioElement.pause();
 });
-nextButton.addEventListener("click", () => {
+/* nextButton.addEventListener("click", () => {
   sourceManager.next();
   reload();
-});
+}); */
 musicVolumeInput.addEventListener("input", (event) => {
   const target = event.target as HTMLInputElement;
   musicAudioElement.volume = parseInt(target.value) / 100;

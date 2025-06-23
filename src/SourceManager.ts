@@ -1,6 +1,6 @@
 export class SourceManager {
   private musicSource: MusicSource = MusicSource.CHILLING;
-  private atcSource: AtcSource = AtcSource.ARINC;
+  private atcSource: AtcSource = AtcSource.LSZH;
 
   get currentMusicSource() {
     return this.musicSource.toString();
@@ -24,6 +24,7 @@ export class SourceManager {
 export enum AtcSource {
   ARINC = "https://s1-bos.liveatc.net/kjfk9_s",
   LURAY = "https://s1-fmt2.liveatc.net/kmrb1_app_luray",
+  LSZH = "https://s1-bos.liveatc.net/lszh1_twr",
 }
 
 export enum MusicSource {
